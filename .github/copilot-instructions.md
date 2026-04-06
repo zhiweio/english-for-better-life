@@ -3,7 +3,7 @@
 ## Purpose
 
 This workspace is for building one-to-one English lesson materials.
-The main outputs are topic scripts under `topics/` and post-lesson review notes under `notes/`.
+The main outputs are topic scripts under `topics/`, post-lesson review notes under `notes/`, and short-article vocabulary training materials under `高频1000词/`.
 The learner is a beginner speaker.
 Reading is acceptable, but listening and speaking are very weak.
 The long-term training goal is to reach spoken B1 level.
@@ -43,6 +43,27 @@ When organizing a note from raw lesson output:
 - convert raw fragments into short reusable spoken lines when possible
 - keep the note compact and review-friendly
 - prioritize items that are valuable for both speaking reuse and pronunciation practice
+
+## High-Frequency Vocabulary Material Rules
+
+When the user provides a short article and asks to create vocabulary training material, create a new file in `高频1000词/` unless the user clearly asks to overwrite an existing file.
+Use a sequence prefix in the filename such as `1_`, `2_`, `3_` instead of a date prefix.
+If no sequence number is specified, use the next reasonable integer based on existing files in `高频1000词/`.
+
+This material is not a topic script and not a post-lesson note.
+Its job is to help the learner build automatic control of high-frequency words through short reading, phrase review, pronunciation practice, and repeatable output drills.
+
+Preserve the original text in the file.
+Then transform the text into compact practice material.
+
+When organizing this kind of material:
+
+- keep the original article clean and readable
+- select high-frequency or highly reusable words first
+- prefer words and phrases that are useful across many topics
+- include pronunciation practice as a core section
+- include good sentence patterns and grammar structures from the article
+- keep the practice focused and repeatable rather than encyclopedic
 
 ## Default Learner Profile
 
@@ -155,6 +176,58 @@ Keep only truly unclear items that should be confirmed in the next lesson.
 Add a short practice plan that helps the learner reuse the note orally.
 This should usually include a pronunciation task, not only memorization.
 
+## Required High-Frequency Vocabulary Material Structure
+
+Unless the user asks for a different structure, every generated file under `高频1000词/` should follow this order:
+
+1. Material Goal
+State what the learner should be able to understand, pronounce, and say after studying the material.
+
+2. Quick Chinese Brief
+Summarize the short article in concise Chinese.
+
+3. Original Text
+Keep the original article or dialogue in clean form.
+
+4. Core High-Frequency Words
+Select 8 to 15 useful words from the text.
+For each item, give:
+- simple English meaning
+- short Chinese explanation
+- simple pronunciation hint when useful
+- one short reusable sentence
+
+5. Useful Phrases and Collocations
+Select 6 to 12 phrases from the text.
+For each item, give:
+- short Chinese explanation
+- simple pronunciation or rhythm hint when useful
+- one short reusable sentence
+
+6. Pronunciation Focus
+Select 5 to 8 words or phrases that are especially worth speaking practice.
+For each item, give:
+- a simple stress hint in easy text form
+- a short Chinese reminder about stress, linking, endings, or difficult sounds
+- one short repeat drill
+
+7. Good Expressions and Grammar Patterns
+Select 3 to 6 useful sentence patterns or grammar structures from the text.
+For each item, give:
+- the pattern
+- a short Chinese explanation
+- one model sentence from or based on the text
+- one substitution drill or mini transformation
+
+8. Retelling and Output Drill
+Give:
+- a 3-line retelling
+- a 5-line retelling
+- 3 short output prompts the learner can answer orally
+
+9. Review Task
+Add a short review plan focused on reading aloud, pronunciation, phrase reuse, and short retelling.
+
 ## Writing Style for Topics
 
 Use simple spoken English.
@@ -177,6 +250,17 @@ It is better to keep 12 useful items than 40 weak items.
 Prefer simple pronunciation help over technical phonetics.
 Usually use easy stress marking like `a-GILE`, `SPRINT`, `con-CISE`, or short Chinese reminders.
 Do not overuse IPA unless the user explicitly wants it.
+
+## Writing Style for High-Frequency Vocabulary Materials
+
+Keep the material compact and drill-friendly.
+The learner should be able to review one file quickly and repeat it many times.
+
+Prefer high-frequency usefulness over topic completeness.
+Do not try to explain every difficult word in the source if it is not worth keeping.
+
+Pronunciation should be practical.
+Use easy stress marking and simple Chinese reminders instead of dense phonetic theory.
 
 ## Bilingual Support
 
@@ -208,6 +292,7 @@ If the user provides personal background, reflect it in the script.
 Preserve the user's source draft unless the user asks to replace it.
 When generating a new topic from source material, prefer creating a dedicated file in `topics/`.
 When generating a new note from class output, prefer creating a dedicated file in `notes/`.
+When generating a new high-frequency vocabulary material from a short article, prefer creating a dedicated file in `高频1000词/`.
 If updating an existing topic, keep the structure clean and consistent.
 
 ## Prompt Handling
@@ -218,3 +303,6 @@ If the material is too long, first identify the main message, the likely lesson 
 If the user asks to create a new note from lesson output, infer the structure from these instructions and produce the full note file directly.
 If the output is messy, normalize it into a clean review note instead of preserving raw order.
 If pronunciation is relevant, highlight which words and phrases should be practiced aloud first.
+
+If the user asks to create a new high-frequency vocabulary material from a short article, infer the structure from these instructions and produce the full file directly.
+Keep the original text and turn it into reusable drills for vocabulary, phrases, pronunciation, and grammar patterns.

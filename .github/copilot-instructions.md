@@ -3,10 +3,31 @@
 ## Purpose
 
 This workspace is for building one-to-one English lesson materials.
-The main outputs are topic scripts under `topics/`, post-lesson review notes under `notes/`, and short-article vocabulary training materials under `高频1000词/`.
+The main outputs are pre-class preparation materials under `materials/`, topic scripts under `topics/`, post-lesson review notes under `notes/`, cycle review files under `review/`, and short-article vocabulary training materials under `高频1000词/`.
 The learner is a beginner speaker.
 Reading is acceptable, but listening and speaking are very weak.
 The long-term training goal is to reach spoken B1 level.
+
+## Materials Creation Rules
+
+When the user provides pre-class source material and asks to create or update preparation material, create a new file in `materials/` unless the user clearly asks to overwrite an existing file.
+If a date is known from the source or request, use it in the filename.
+If no date is known, use a reasonable date-based filename.
+
+This material is not a topic script and not a post-lesson note.
+Its job is to preserve the teacher's pre-class source material in clean form so it can be reviewed before class.
+
+The source material will usually be based on IT work scenarios such as code review, incidents, requirements, APIs, tickets, deployment, testing, or meetings.
+Do not rewrite the original material into a new training format.
+Keep the original title, role setup, dialogue, vocabulary, and source questions visible.
+
+When organizing pre-class material from raw source:
+
+- create one file per source article or source item unless the user explicitly wants them merged
+- preserve the original heading order and source wording as much as possible
+- clean up formatting only enough to make the file readable and reusable
+- do not add template sections, answer scaffolds, or shared prompt content unless the user explicitly asks for them
+- keep the file close to the teacher-provided material rather than transforming it
 
 ## Topic Creation Rules
 
@@ -39,10 +60,36 @@ When organizing a note from raw lesson output:
 - deduplicate repeated items
 - correct obvious spelling mistakes
 - correct obvious phrase errors when the intended meaning is clear
+- include all usable user-provided words, phrases, and short sentences somewhere in the note
+- if the user gives an explicit review list, treat coverage of that list as mandatory
+- exact duplicates can be merged, but do not silently drop usable items
 - keep ambiguous items only if they are useful to review later
+- if an item is unclear, weak, or still incorrect, place it in `Fixes and Upgrades` or `Check Next Time` instead of omitting it
 - convert raw fragments into short reusable spoken lines when possible
 - keep the note compact and review-friendly
 - prioritize items that are valuable for both speaking reuse and pronunciation practice
+
+## Review Creation Rules
+
+When the user provides weekly, multi-lesson, or cycle-end material and asks to create or update a review, create a new file in `review/` unless the user clearly asks to overwrite an existing file.
+If a date or cycle label is known from the source or request, use it in the filename.
+If no period label is known, use a reasonable date-based filename with a short cycle-review label.
+
+The review is not a transcript, not a single-lesson note, and not a topic script.
+Its job is to consolidate one week or one learning cycle into a reusable review pack.
+
+The teacher may provide a generated article, a word list, knowledge Q&A, correction points, or other mixed review material.
+The final review should keep the source article in clean form, organize the vocabulary and Q&A into drill-friendly sections, and clearly analyze what the learner should practice first.
+
+When organizing a cycle review from raw material:
+
+- preserve the teacher-provided article in a clean and readable form
+- cover all usable user-provided words, phrases, questions, and answers somewhere in the review
+- merge exact duplicates, but do not silently drop useful items
+- if an item is weak, unclear, or still incorrect, move it into a correction-focused section instead of omitting it
+- identify repeated pronunciation, grammar, answer-organization, or speaking-precision problems
+- separate highest-priority practice from lower-priority review material
+- keep the review compact enough to revisit several times during the next cycle
 
 ## High-Frequency Vocabulary Material Rules
 
@@ -176,6 +223,75 @@ Keep only truly unclear items that should be confirmed in the next lesson.
 Add a short practice plan that helps the learner reuse the note orally.
 This should usually include a pronunciation task, not only memorization.
 
+## Note Coverage Rule
+
+When the user provides a word list, phrase list, sentence list, or other explicit review items for a note, the final note should cover all usable items across its sections.
+Not every item needs to appear in `Keep First`, but each usable item should appear in at least one suitable place such as `Pronunciation Focus`, `Word Bank`, `Phrase Bank`, `Ready-to-Say Sentences`, `Fixes and Upgrades`, or `Check Next Time`.
+If multiple raw items are exact duplicates, they may be merged.
+If an item is unclear or not yet natural, keep it in the note as a correction target instead of silently dropping it.
+
+## Required Review Structure
+
+Unless the user asks for a different structure, every generated review should follow this cycle-review order:
+
+1. Review Goal
+State what the learner should be able to understand, retell, answer, and reuse after reviewing this cycle.
+
+2. Cycle Snapshot
+Briefly record the review period, source materials, main topics, and the biggest improvements and remaining problems.
+
+3. Quick Chinese Brief
+Summarize the cycle material in concise Chinese.
+
+4. Cycle Core Article
+Keep the teacher-provided article in clean form.
+
+5. Keep First
+Select 8 to 12 highest-value words, phrases, or answer patterns that should be reviewed first.
+
+6. Consolidated Word and Chunk Bank
+Group the important words, phrases, and reusable answer patterns.
+For each item, give:
+- type when useful such as word, phrase, or answer pattern
+- simple English meaning
+- short Chinese explanation
+- simple pronunciation hint when useful
+- one short reusable spoken line
+
+7. Knowledge Q&A Review
+Keep the key review questions.
+For each item, give:
+- one short answer
+- one upgraded answer
+
+8. Pronunciation and Speaking Fixes
+Select the items that still need repair.
+For each item, give:
+- a focus such as pronunciation, grammar, phrasing, or answer structure
+- a simple hint
+- a short Chinese reminder
+- one repair line or corrected version
+- one repeat drill
+
+9. Retell and Reuse
+Give:
+- a 3-line retell
+- a 5-line retell
+- 3 short answer frames or speaking prompts
+
+10. Priority Practice Analysis
+State what the learner should practice first, why it matters, and what improvement target should be reached next.
+
+11. Review Task
+Add a short multi-day review plan focused on reading aloud, pronunciation, Q&A reuse, retelling, and weak-point repair.
+
+## Review Coverage Rule
+
+When the user provides an article, word list, knowledge Q&A, correction list, or other explicit review material for a cycle review, the final review should preserve the article and cover all usable input somewhere in the file.
+Not every item needs to appear in `Keep First`, but each usable item should appear in at least one suitable place such as `Cycle Core Article`, `Consolidated Word and Chunk Bank`, `Knowledge Q&A Review`, `Pronunciation and Speaking Fixes`, `Retell and Reuse`, or `Priority Practice Analysis`.
+If multiple raw items are exact duplicates, they may be merged.
+If an item is weak, unclear, or not yet natural, keep it in the review as a correction target instead of silently dropping it.
+
 ## Required High-Frequency Vocabulary Material Structure
 
 Unless the user asks for a different structure, every generated file under `高频1000词/` should follow this order:
@@ -237,6 +353,12 @@ Avoid long paragraphs.
 Avoid broad discussion questions without giving answer support.
 Make the output easy to read aloud.
 
+## Writing Style for Materials
+
+Keep materials close to the teacher's original source.
+Use clean markdown formatting, but do not invent a new module structure.
+If multiple source items are provided for the same date, usually create separate date-based files rather than merging them.
+
 ## Writing Style for Notes
 
 Keep notes compact.
@@ -244,12 +366,24 @@ Prefer short sections and short lines.
 Do not write long explanations.
 The learner should be able to review the whole note quickly before the next class.
 
-Prioritize reusability over completeness.
-It is better to keep 12 useful items than 40 weak items.
+Prioritize reusability in the top sections, but preserve coverage of the user's input.
+If the user provides a specific review list, do not drop usable items just to make the note shorter.
+It is better to keep the highest-value items in `Keep First` and place the remaining usable items in `Word Bank`, `Phrase Bank`, `Fixes and Upgrades`, or `Check Next Time`.
 
 Prefer simple pronunciation help over technical phonetics.
 Usually use easy stress marking like `a-GILE`, `SPRINT`, `con-CISE`, or short Chinese reminders.
 Do not overuse IPA unless the user explicitly wants it.
+
+## Writing Style for Reviews
+
+Keep reviews structured, compact, and easy to revisit across several days.
+Do not turn the file into a raw archive of pasted material.
+
+Preserve the core article and coverage of the teacher's materials, but reorganize them so the learner can actually study them.
+Make the learner's top practice priorities obvious.
+
+Prefer reusable spoken English, short answer upgrades, and focused corrections over long explanations.
+Use concise Chinese only where it lowers the review barrier.
 
 ## Writing Style for High-Frequency Vocabulary Materials
 
@@ -290,12 +424,17 @@ If the user provides personal background, reflect it in the script.
 ## File Editing Rules
 
 Preserve the user's source draft unless the user asks to replace it.
+When generating a new pre-class preparation material from source material, prefer creating a dedicated file in `materials/`.
 When generating a new topic from source material, prefer creating a dedicated file in `topics/`.
 When generating a new note from class output, prefer creating a dedicated file in `notes/`.
+When generating a new cycle review from multi-lesson material, prefer creating a dedicated file in `review/`.
 When generating a new high-frequency vocabulary material from a short article, prefer creating a dedicated file in `高频1000词/`.
 If updating an existing topic, keep the structure clean and consistent.
 
 ## Prompt Handling
+
+If the user asks to create a new pre-class preparation material from raw source, infer the structure from these instructions and produce the full `materials/` file directly.
+Preserve the original source organization and create separate files when the user provides separate source items.
 
 If the user asks to create a new topic from raw material, infer the structure from these instructions and produce the full topic file directly.
 If the material is too long, first identify the main message, the likely lesson questions, and the most reusable speaking chunks.
@@ -303,6 +442,9 @@ If the material is too long, first identify the main message, the likely lesson 
 If the user asks to create a new note from lesson output, infer the structure from these instructions and produce the full note file directly.
 If the output is messy, normalize it into a clean review note instead of preserving raw order.
 If pronunciation is relevant, highlight which words and phrases should be practiced aloud first.
+
+If the user asks to create a new cycle review from weekly or multi-lesson material, infer the structure from these instructions and produce the full review file directly.
+Keep the teacher-provided article, organize the word list and knowledge Q&A into usable review sections, and clearly state what the learner should practice first.
 
 If the user asks to create a new high-frequency vocabulary material from a short article, infer the structure from these instructions and produce the full file directly.
 Keep the original text and turn it into reusable drills for vocabulary, phrases, pronunciation, and grammar patterns.

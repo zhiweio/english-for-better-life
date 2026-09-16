@@ -6,3 +6,6 @@
     
     https://www.youtube.com/watch?v=ukQu9731NUs
 
+- **精听：【如何学习英语】【8】【Pronunciation 】How To Improve Your Pronunciation: Speak Clearly!**
+    
+    https://www.youtube.com/watch?v=nttWjq2rD00&t=70s

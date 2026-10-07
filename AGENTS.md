@@ -10,7 +10,7 @@
 
 | 路径 | 内容 |
 |---|---|
-| `lessons/YYYY-MM-DD/` | **核心**:一节课一个文件夹(material / preparation / essay-draft / essay-feedback / after-class / vocab) |
+| `lessons/YYYY-MM-DD/` | **核心**:一节课一个文件夹(material / preparation / essay-draft / essay-feedback / after-class / grammar(可选,语法作业)/ vocab) |
 | `vocabulary/` | 跨课沉淀:`mistakes.md` 错误模式本、`anki-export.csv`(脚本生成) |
 | `expression/` | 跨课表达库(短语、利弊表达模板) |
 | `reading-and-listening/` | 阅读练习 + 通用听力资源清单 |
@@ -25,7 +25,7 @@
 | 「整理材料」 | `.agents/skills/organize-material/SKILL.md` | 老师材料 → `lessons/日期/material.md` |
 | 「生成预习」 | `.agents/skills/prepare-lesson/SKILL.md` | material → `preparation.md`(B2 嵌套从句) |
 | 「批改作文」 | `.agents/skills/review-essay/SKILL.md` | essay-draft → `essay-feedback.md` + 更新 `vocabulary/mistakes.md` |
-| 「整理课后」 | `.agents/skills/after-class/SKILL.md` | 视频/阅读链接 → `after-class.md` + `vocab.md` + 打卡 |
+| 「整理课后」 | `.agents/skills/after-class/SKILL.md` | 视频/阅读/语法作业 → `after-class.md` + `grammar.md`(可选)+ `vocab.md` + 打卡 |
 | 「周回顾」 | `.agents/skills/weekly-review/SKILL.md` | 扫描本周 → 更新 `dashboard.md` |
 
 **执行规则:**

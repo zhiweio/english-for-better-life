@@ -15,8 +15,10 @@
   4. 老师带着批改作文;老师的额外指正课后补进 essay-feedback.md 的「课堂补充」区
 
 课后
-  5. 把老师发的视频/阅读链接贴给 AI → 说「整理课后」
+  5. 把老师发的视频/阅读/语法作业贴给 AI → 说「整理课后」
                                           → lessons/日期/after-class.md(完成一项勾一项)
+                                          → lessons/日期/grammar.md(语法作业,不一定每课都有;
+                                            小测验留白自测,下节课口答)
                                           → lessons/日期/vocab.md(摘表达)
 
 周日晚
@@ -29,7 +31,7 @@
 
 | 路径 | 内容 |
 |---|---|
-| `lessons/YYYY-MM-DD/` | **一节课一个文件夹**:material(老师材料)/ preparation(预习)/ essay-draft(作文稿)/ essay-feedback(批改)/ after-class(课后任务+打卡)/ vocab(本课词汇) |
+| `lessons/YYYY-MM-DD/` | **一节课一个文件夹**:material(老师材料)/ preparation(预习)/ essay-draft(作文稿)/ essay-feedback(批改)/ after-class(课后任务+打卡)/ grammar(语法作业,可选)/ vocab(本课词汇) |
 | `dashboard.md` | 进度看板:课程日志、streak、统计、薄弱点 Top 5、下周重点、周记 |
 | `vocabulary/` | `mistakes.md` 错误模式本(刻意练习靶点)+ `anki-export.csv` |
 | `expression/` | 跨课表达库(高频短语、利弊表达模板) |

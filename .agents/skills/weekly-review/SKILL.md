@@ -18,6 +18,7 @@ description: 每周学习回顾。当用户说「周回顾」「本周回顾」�
   - 作文:`essay-draft.md` 存在
   - 批改:`essay-feedback.md` 存在(注意「课堂补充」区是否有内容待整理)
   - 精听/泛听/阅读:`after-class.md` 中对应 checkbox 是否勾选
+  - 语法:`grammar.md` 是否存在(不是每课都有);状态行是否已完成,未完成的列为下周待办
   - 词汇:`vocab.md` 条目数
 - 同时检查上周遗留未完成的打卡,单独列出
 
